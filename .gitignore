@@ -1,0 +1,13 @@
+.directory
+*.fdb_latexmk
+*.synctex.gz
+*.aux
+*.log
+*.out
+*.fls
+*.loc
+*.nlo
+*.soc
+*.toc
+*.bbl
+*.blg
