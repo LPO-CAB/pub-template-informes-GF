@@ -33,11 +33,6 @@
                     \newcommand*{\divcode}{03DYS}}
 \DeclareOption{lpo}{\newcommand*{\division}{FOTÓNICA Y OPTOELECTRÓNICA}
                     \newcommand*{\divcode}{LPO}}
-\DeclareOption{onecolumn}{\OptionNotUsed}
-\DeclareOption{green}{\renewcommand{\headlinecolor}{\color{green}}}
-\DeclareOption{red}{\renewcommand{\headlinecolor}{\color{slcolor}}}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
-\ProcessOptions\relax
 
 % Generacion de pdf sin las marcas de cambios
 \DeclareOption{vfinal}{\PassOptionsToPackage{final}{changes}}
