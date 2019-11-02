@@ -1,8 +1,8 @@
-% INF-MBE.cls
-% Marzo 2015  Ezequiel O. Fogliatto fogliatto (at) cab.cnea.gov.ar 
-%Modificado en noviembre 2015 por Simón Claramonte / simon.claramonte@cab.cnea.gov.ar
-% Enero de 2017- informes tecnico MBE modificado Leonardo Salazar A
-%leonardo.salazar.alarcon@cab.cnea.gov.ar
+% INF-GF.cls
+% Marzo 2015      Ezequiel O. Fogliatto <fogliatto (at) cab.cnea.gov.ar>
+% Noviembre 2015  Modificado por Simón Claramonte <simon.claramonte (at) cab.cnea.gov.ar>
+% Enero 2017      Modificado por Leonardo Salazar Alarcón <leonardo.salazar.alarcon (at) cab.cnea.gov.ar> (Informes técnicos MBE)
+% Noviembre 2019  Modificado por Guillermo Rozas <grozas (at) cab.cnea.gov.ar> (Informes técnicos GF, control de versión)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
@@ -11,7 +11,7 @@
 %
 %
 %
-%       CLASE PAR LA GENERACION DE INFORMES  DEL MBE 
+%       CLASE PARA LA GENERACIÓN DE INFORMES DE LA GERENCIA DE FÍSICA (CAB) 
 %
 %
 %
@@ -20,20 +20,30 @@
 %
 % --- Estructura de la clase: secci\'on de identificaci\'on
 % ---
-\ProvidesClass{INF-MBE}[2017/01/10 Informes Tecnicos de MBE]
 \NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{INF-GF}[2019/11/02 - Informes Tecnicos de la Gerencia de Fisica (CAB) - v0.2.0]
 
 
 % --- Estructura de la clase: declaraci\'on de opciones
 % ---
 % Esta clase extiende la clase article
 
+% División que genera el informe
+\DeclareOption{dys}{\newcommand*{\division}{DISPOSITIVOS Y SENSORES}
+                    \newcommand*{\divcode}{03DYS}}
+\DeclareOption{lpo}{\newcommand*{\division}{FOTÓNICA Y OPTOELECTRÓNICA}
+                    \newcommand*{\divcode}{LPO}}
+\DeclareOption{onecolumn}{\OptionNotUsed}
+\DeclareOption{green}{\renewcommand{\headlinecolor}{\color{green}}}
+\DeclareOption{red}{\renewcommand{\headlinecolor}{\color{slcolor}}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions\relax
+
 % Generacion de pdf sin las marcas de cambios
 \DeclareOption{vfinal}{\PassOptionsToPackage{final}{changes}}
 
 % Lee todas las opciones no declaradas previamente de documentclass, y las pasa a article
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
-
 
 % --- Estructura de la clase: ejecuci\'on de opciones
 % ---
@@ -91,7 +101,9 @@
 
 
 % Definicion de las macros objetivo, alcance, revisores, etc
+\newcommand*{\grupo}[1]{\gdef\@grupo{#1}}
 \newcommand*{\numeroIT}[1]{\gdef\@numeroIT{#1}}
+\newcommand{\codigoinf}{INT-INN\_\divcode\_\@grupo-\@numeroIT}
 \newcommand*{\objetivo}[1]{\gdef\@objetivo{#1}}
 \newcommand*{\solicitante}[1]{\gdef\@solicitante{#1}}
 \newcommand*{\autores}[3]{{\gdef\@fautor{#1}} {\gdef\@sautor{#2}} {\gdef\@tautor{#3}}} 
@@ -163,8 +175,8 @@
             \colwidths{{3.15cm}{10.51cm}{3.7cm}}
             \brow 
                 \alignC \nullcell{ltr} \alignC 
-		\cell{{\vfil \plarge{ \bf GERENCIA DE FISICA-GAIyANN}} \\[4pt] \pnormal{DISPOSITIVOS Y SENSORES-MBE}}
-                \cell{\vfil \pnormal{INT-INN\_03DYS\_MBE-\@numeroIT}}  
+		\cell{{\vfil \plarge{ \bf GERENCIA DE FISICA-GAIyANN}} \\[4pt] \pnormal{\division}}
+                \cell{\vfil \pnormal{\codigoinf}}  
                 \ht\cals@current@row=3.15cm 
             \erow
             \brow 
@@ -368,7 +380,7 @@
             \brow 
                 \alignC \cell{\vfil \huge \bf CNEA} 
                 \cell{\vfil \bf \@titulo}              
-                \cell{\vfil INT-INN\_03DYS\_MBE-\@numeroIT \\[2pt] P\'agina: \thepage \hspace{1pt} de \pageref{LastPage} }
+                \cell{\vfil \codigoinf \\[2pt] P\'agina: \thepage \hspace{1pt} de \pageref{LastPage} }
                 \ht\cals@current@row=2.2cm 
             \erow
         \end{calstable}
