@@ -31,8 +31,10 @@
 % División que genera el informe
 \DeclareOption{dys}{\newcommand*{\division}{DISPOSITIVOS Y SENSORES}
                     \newcommand*{\divcode}{03DYS}}
+\DeclareOption{dys_mbe}{\newcommand*{\division}{DISPOSITIVOS Y SENSORES - MBE}
+                    \newcommand*{\divcode}{03DYS\_MBE}}
 \DeclareOption{lpo}{\newcommand*{\division}{FOTÓNICA Y OPTOELECTRÓNICA}
-                    \newcommand*{\divcode}{LPO}}
+                    \newcommand*{\divcode}{03LFO}}
 
 % Generacion de pdf sin las marcas de cambios
 \DeclareOption{vfinal}{\PassOptionsToPackage{final}{changes}}
@@ -96,9 +98,8 @@
 
 
 % Definicion de las macros objetivo, alcance, revisores, etc
-\newcommand*{\grupo}[1]{\gdef\@grupo{#1}}
 \newcommand*{\numeroIT}[1]{\gdef\@numeroIT{#1}}
-\newcommand{\codigoinf}{INT-INN\_\divcode\_\@grupo-\@numeroIT}
+\newcommand{\codigoinf}{INT-INN\_\divcode-\@numeroIT}
 \newcommand*{\objetivo}[1]{\gdef\@objetivo{#1}}
 \newcommand*{\solicitante}[1]{\gdef\@solicitante{#1}}
 \newcommand*{\autores}[3]{{\gdef\@fautor{#1}} {\gdef\@sautor{#2}} {\gdef\@tautor{#3}}} 
