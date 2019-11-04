@@ -21,7 +21,7 @@
 % --- Estructura de la clase: secci\'on de identificaci\'on
 % ---
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{INF-GF}[2019/11/02 - Informes Tecnicos de la Gerencia de Fisica (CAB) - v0.2.0]
+\ProvidesClass{INF-GF}[2019/11/02 - Informes Tecnicos de la Gerencia de Fisica (CAB) - v0.2.3]
 
 
 % --- Estructura de la clase: declaraci\'on de opciones
@@ -168,12 +168,12 @@
         \def\cals@cs@width{2pt}
 
         \begin{calstable}
-            \colwidths{{3.15cm}{10.51cm}{3.7cm}}
+            \colwidths{{2.8cm}{10.26cm}{4.3cm}}
             \brow 
                 \alignC \nullcell{ltr} \alignC 
 		\cell{{\vfil \plarge{ \bf GERENCIA DE FISICA-GAIyANN}} \\[4pt] \pnormal{\division}}
                 \cell{\vfil \pnormal{\codigoinf}}  
-                \ht\cals@current@row=3.15cm 
+                \ht\cals@current@row=2cm 
             \erow
             \brow 
                 \nullcell{lrb}\spancontent{\vfil \includegraphics[width=0.9\linewidth]{Logo_CNEA}} 
@@ -372,12 +372,12 @@
             \def\cals@framers@width{1.5pt}
             \def\cals@rs@width{1.5pt}
             \def\cals@cs@width{1.5pt}    
-            \colwidths{{2.8cm}{10.14cm}{4.06cm}}
+            \colwidths{{2.8cm}{9.9cm}{4.3cm}}
             \brow 
                 \alignC \cell{\vfil \huge \bf CNEA} 
                 \cell{\vfil \bf \@titulo}              
                 \cell{\vfil \codigoinf \\[2pt] P\'agina: \thepage \hspace{1pt} de \pageref{LastPage} }
-                \ht\cals@current@row=2.2cm 
+                \ht\cals@current@row=1.9cm 
             \erow
         \end{calstable}
         }
