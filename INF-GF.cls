@@ -35,6 +35,8 @@
                     \newcommand*{\divcode}{03DYS\_MBE}}
 \DeclareOption{lpo}{\newcommand*{\division}{FOTÓNICA Y OPTOELECTRÓNICA}
                     \newcommand*{\divcode}{03LFO}}
+\DeclareOption{qcl}{\newcommand*{\division}{PROYECTO QCL}
+                    \newcommand*{\divcode}{03/QCL}}
 
 % Generacion de pdf sin las marcas de cambios
 \DeclareOption{vfinal}{\PassOptionsToPackage{final}{changes}}
