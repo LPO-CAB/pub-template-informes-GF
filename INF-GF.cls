@@ -75,7 +75,7 @@
 \RequirePackage[english,spanish]{babel}
 \RequirePackage{blindtext}               % Opcional. Solo para insertar texto "dummy"
 \RequirePackage[nottoc,numbib]{tocbibind}    % Manejo de bibliograf\'ia en TOC
-\RequirePackage[authormarkup=footnote,authormarkuptext=name]{changes}              % Edici\'on - correcci\'on del documento
+%\RequirePackage[authormarkup=footnote,authormarkuptext=name]{changes}              % Edici\'on - correcci\'on del documento
 \RequirePackage[width=0.95\textwidth]{subcaption}
 
 
@@ -451,6 +451,7 @@
             \contentsname       %%%  
             \end{center}        %%%
 %            \addvspace{1cm}     %%%   Añade o quita espacio vertical 
+
     \@mkboth{%
        \MakeUppercase\contentsname}{\MakeUppercase\contentsname} 
     {\large \@starttoc{toc} }
