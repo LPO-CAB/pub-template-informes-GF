@@ -21,7 +21,7 @@
 % --- Estructura de la clase: secci\'on de identificaci\'on
 % ---
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{INF-GF}[2019/11/04 - Informes Tecnicos de la Gerencia de Fisica (CAB) - v0.2.1]
+\ProvidesClass{INF-GF}[2019/12/17 - Informes Tecnicos de la Gerencia de Fisica (CAB) - v0.3.0]
 
 
 % --- Estructura de la clase: declaraci\'on de opciones
@@ -37,6 +37,16 @@
                     \newcommand*{\divcode}{03LFO}}
 \DeclareOption{qcl}{\newcommand*{\division}{PROYECTO QCL}
                     \newcommand*{\divcode}{03/QCL}}
+                    
+% Tipo de informe
+\DeclareOption{int}{\newcommand*{\tipoinforme}{Informe Técnico}
+                    \newcommand*{\tipocode}{INT}
+                    \newcommand*{\titlesecdos}{SOLICITANTE}
+                    \newcommand*{\revisionIT}[1]{\gdef\@revisionIT{}}}
+\DeclareOption{po}{\newcommand*{\tipoinforme}{Procedimiento Operativo}
+                   \newcommand*{\tipocode}{PO}
+                   \newcommand*{\titlesecdos}{ALCANCE}
+                   \newcommand*{\revisionIT}[1]{\gdef\@revisionIT{\,Rev.~#1}}}
 
 % Generacion de pdf sin las marcas de cambios
 \DeclareOption{vfinal}{\PassOptionsToPackage{final}{changes}}
@@ -101,7 +111,7 @@
 
 % Definicion de las macros objetivo, alcance, revisores, etc
 \newcommand*{\numeroIT}[1]{\gdef\@numeroIT{#1}}
-\newcommand{\codigoinf}{INT-INN\_\divcode-\@numeroIT}
+\newcommand{\codigoinf}{\tipocode-INN\_\divcode-\@numeroIT \@revisionIT}
 \newcommand*{\objetivo}[1]{\gdef\@objetivo{#1}}
 \newcommand*{\solicitante}[1]{\gdef\@solicitante{#1}}
 \newcommand*{\autores}[3]{{\gdef\@fautor{#1}} {\gdef\@sautor{#2}} {\gdef\@tautor{#3}}} 
@@ -113,10 +123,6 @@
 
 % Captions
 \captionsetup{width=0.85\textwidth,textfont=footnotesize,labelfont={bf,small},format=hang}
-
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -179,7 +185,7 @@
             \erow
             \brow 
                 \nullcell{lrb}\spancontent{\vfil \includegraphics[width=0.9\linewidth]{Logo_CNEA}} 
-                \cell{\vfil \plarge{ \bf Informe T\'ecnico}}\cell{\vfil \pnormal{P\'agina: \thepage \hspace{1pt} de \pageref{LastPage}}} 
+                \cell{\vfil \plarge{ \bf \tipoinforme}}\cell{\vfil \pnormal{P\'agina: \thepage \hspace{1pt} de \pageref{LastPage}}} 
                 \ht\cals@current@row=0.85cm
             \erow
         \end{calstable}     
@@ -255,7 +261,7 @@
 		{\section{\bf OBJETIVO}} \par
 		{\parindent=0.75cm \pnormal{\@objetivo}} \\ 
 		
-		{\section{\bf SOLICITANTE}} \par
+		{\section{\bf \titlesecdos}} \par
 		{\parindent=0.75cm \pnormal{\@solicitante}}
 		\vspace{10pt}
 	} 
