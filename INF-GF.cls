@@ -40,7 +40,7 @@
                     
 % Tipo de informe
 \DeclareOption{int}{\newcommand*{\tipoinforme}{Informe Técnico}
-                    \newcommand*{\tipocode}{INT}
+                    \newcommand*{\tipocode}{INT\kern-0.14em}
                     \newcommand*{\titlesecdos}{SOLICITANTE}
                     \newcommand*{\revisionIT}[1]{\gdef\@revisionIT{}}}
 \DeclareOption{po}{\newcommand*{\tipoinforme}{Procedimiento Operativo}
@@ -74,7 +74,7 @@
 \RequirePackage{setspace}             % Interlineado en partes espec\'ificas
 \RequirePackage{indentfirst}          % Genera sangr\'ia para el primer p\'arrafo despu\'es del t\'itulo de secci\'on
 \RequirePackage{amsmath,amsfonts}     % S\'imbolos matem\'aticos
-\RequirePackage{fixltx2e}             % Multicolumn
+% \RequirePackage{fixltx2e}             % Multicolumn
 \RequirePackage{placeins}             % Fuerza el salto de p\'agina despu\'es de figuras con \FloatBarrier
 \RequirePackage[intoc]{nomencl}       % Tabla de abreviaturas
 \RequirePackage[format=hang]{caption} % Formato de captions
@@ -84,7 +84,7 @@
 \RequirePackage[a4paper]{geometry}             % Formato de margenes (distinto para la primera pagina)
 \RequirePackage[english,spanish]{babel}
 \RequirePackage{blindtext}               % Opcional. Solo para insertar texto "dummy"
-\RequirePackage[nottoc,numbib]{tocbibind}    % Manejo de bibliograf\'ia en TOC
+\RequirePackage[nottoc,notlof,notlot,numbib]{tocbibind}    % Manejo de bibliograf\'ia en TOC
 %\RequirePackage[authormarkup=footnote,authormarkuptext=name]{changes}              % Edici\'on - correcci\'on del documento
 \RequirePackage[width=0.95\textwidth]{subcaption}
 
@@ -374,21 +374,25 @@
     \fancyhf{}                            % Borra todos los campos
     \renewcommand{\headrulewidth}{0pt}    % Elimina la l\'inea del encabezado
     \renewcommand{\footrulewidth}{0pt}    % Elimina la l\'inea del pie de p\'agina
-    \fancyhead[CO,CE]{
-        \begin{calstable}
-            \def\cals@framecs@width{1.5pt}
-            \def\cals@framers@width{1.5pt}
-            \def\cals@rs@width{1.5pt}
-            \def\cals@cs@width{1.5pt}    
-            \colwidths{{2.8cm}{9.9cm}{4.3cm}}
-            \brow 
-                \alignC \cell{\vfil \huge \bf CNEA} 
-                \cell{\vfil \bf \@titulo}              
-                \cell{\vfil \codigoinf \\[2pt] P\'agina: \thepage \hspace{1pt} de \pageref{LastPage} }
-                \ht\cals@current@row=1.9cm 
-            \erow
-        \end{calstable}
-        }
+    \fancyhead[C]{
+        \begin{minipage}{17.5cm}
+        \makeatletter
+            \begin{calstable}
+                \def\cals@framecs@width{1.5pt}
+                \def\cals@framers@width{1.5pt}
+                \def\cals@rs@width{1.5pt}
+                \def\cals@cs@width{1.5pt}    
+                \colwidths{{2.8cm}{9.9cm}{4.3cm}}
+                \brow 
+                    \alignC \cell{\vfil \huge \bf CNEA} 
+                    \cell{\vfil \bf \@titulo}              
+                    \cell{\vfil \codigoinf \\[2pt] P\'agina: \thepage \hspace{1pt} de \pageref{LastPage} }
+                    \ht\cals@current@row=1.9cm 
+                \erow
+            \end{calstable}
+        \makeatother
+        \end{minipage}
+    }
 }
 
 \pagestyle{followingpage}
@@ -440,7 +444,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Cambio del nombre
-\AtBeginDocument{\renewcommand{\contentsname}{\'INDICE}}
+\AtBeginDocument{\renewcommand{\contentsname}{{\'INDICE}}}
 
 % Centrado del nombre, comienza nueva p\'agina al final
 \makeatletter       
