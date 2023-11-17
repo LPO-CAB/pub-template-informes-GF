@@ -21,7 +21,7 @@
 % --- Estructura de la clase: secci\'on de identificaci\'on
 % ---
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{INF-GF}[2019/12/17 - Informes Tecnicos de la Gerencia de Fisica (CAB) - v0.3.0]
+\ProvidesClass{INF-GF}[2023/11/17 - Informes Tecnicos de la Gerencia de Fisica (CAB) - v0.3.1 (FO-INN_03-001.r0)]
 
 
 % --- Estructura de la clase: declaraci\'on de opciones
