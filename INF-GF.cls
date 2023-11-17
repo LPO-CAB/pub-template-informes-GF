@@ -179,7 +179,7 @@
             \colwidths{{2.8cm}{10.26cm}{4.3cm}}
             \brow 
                 \alignC \nullcell{ltr} \alignC 
-		\cell{{\vfil \plarge{ \bf GERENCIA DE FISICA-GAIyANN}} \\[4pt] \pnormal{\division}}
+		\cell{{\vfil \plarge{ \bf GERENCIA DE F{\'I}SICA-GAIDI}} \\[4pt] \pnormal{\division}}
                 \cell{\vfil \pnormal{\codigoinf}}  
                 \ht\cals@current@row=2cm 
             \erow
